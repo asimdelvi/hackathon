@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const hotelSchema = new mongoose.Schema({
-  hotelname: {
+const placeSchema = new mongoose.Schema({
+  placename: {
     type: String,
     required: true,
   },
@@ -17,10 +17,6 @@ const hotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
-    required: true,
-  },
 });
 
-export const Hotel = mongoose.model("Hotel", hotelSchema);
+export const Place = mongoose.model("Place", placeSchema);

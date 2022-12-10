@@ -5,10 +5,28 @@ const citySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
   hotels: [
     {
-      type: mongoose.Types.ObjectId,
-      refer: "Hotel",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hotel",
+    },
+  ],
+  places: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Place",
     },
   ],
 });

@@ -7,6 +7,8 @@ import { Hotel } from "./models/hotel.js";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 import { router as CityRouter } from "./routers/city.js";
+import { router as HotelRouter } from "./routers/hotel.js";
+import { router as PlaceRouter } from "./routers/place.js";
 
 const app = express();
 
@@ -29,6 +31,8 @@ mongoose
 
 // * Routes
 app.use("/city", CityRouter);
+app.use("/city/:id/hotel", HotelRouter);
+app.use("/city/:id/place", PlaceRouter);
 
 app.get("/add", async (req, res) => {
   const h1 = await Hotel.create({ hotelname: "Hotel One" });

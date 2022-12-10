@@ -26,28 +26,73 @@
   <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar') %>
     <main class="container mt-5">
-      <div class="row">
-        <div class="col-6">
-          <div class="card mb-3">
-            <div class="col-md-4">
-              <% if(city.images) { %>
-              <img
-                src="<%= city.images[0].url %>"
-                class="img-fluid rounded-start"
-                alt="city"
-              />
-              <% } else {%>
-              <img
-                src="https://images.unsplash.com/photo-1637540485660-93031d90b97b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFuZ2xvcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                class="img-fluid rounded-start"
-                alt="city"
-              />
-              <% } %>
-            </div>
-            <div class="card-body">
+      <div class="row gx-5">
+        <div class="col">
+          <div class="shadow rounded card m-3">
+            <img src="<%= city.image %>" class="card-img-top" alt="..." />
+            <div class="pt-2 card-body">
               <h5 class="card-title"><%= city.cityname %></h5>
+              <p class="card-text"><%= city.description %></p>
+              <p class="card-text"><%= city.location %></p>
             </div>
           </div>
+        </div>
+      </div>
+      <div>
+        <h3>Hotels</h3>
+        <% for (const hotel of city.hotels) { %>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="<%= hotel.image %>"
+                class="img-fluid rounded-start"
+                alt="hotel"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= hotel.hotelname %></h5>
+                <p class="card-text"><%= hotel.description %></p>
+                <p class="card-text"><%= hotel.location %></p>
+                <p class="card-text"><%= hotel.price %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <div>
+          <a class="btn btn-primary" href="/city/<%= city.id %>/hotel/new"
+            >Add New Hotel</a
+          >
+        </div>
+      </div>
+      <div>
+        <h3>Places</h3>
+        <% for (const place of city.places) { %>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="<%= place.image %>"
+                class="img-fluid rounded-start"
+                alt="place"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= place.placename %></h5>
+                <p class="card-text"><%= place.description %></p>
+                <p class="card-text"><%= place.location %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <div>
+          <a class="btn btn-primary" href="/city/<%= city.id %>/place/new"
+            >Add New Place</a
+          >
         </div>
       </div>
     </main>

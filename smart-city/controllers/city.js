@@ -1,5 +1,6 @@
 import express from "express";
 import { City } from "../models/city.js";
+import { Hotel } from "../models/hotel.js";
 
 // Read all
 export const showAllCities = async (req, res, next) => {
@@ -13,16 +14,15 @@ export const renderNewForm = async (req, res, next) => {
 
 export const createCity = async (req, res, next) => {
   const city = new City(req.body.city);
-  await campground.save();
-  console.log(campground);
+  city.image = req.file.path;
+  await city.save();
   res.redirect(`/city/${city.id}`);
 };
 
 export const showCity = async (req, res, next) => {
-  const city = await City.findById(req.params.id);
-  // for scalability, we don't need to store the author's info, instead we just can store author's name.
-  // .populate({ path: "reviews", populate: { path: "author" } })
-  // .populate("hotels");
+  const city = await City.findById(req.params.id)
+    .populate("hotels")
+    .populate("places");
   if (!city) {
     return res.redirect("/city");
   }
