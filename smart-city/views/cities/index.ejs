@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YelpCamp</title>
+    <title>SmartCity</title>
 
     <!-- Bootstrap -->
     <link
@@ -14,42 +14,24 @@
       crossorigin="anonymous"
     />
 
-    <!-- Mapbox -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/stylesheets/app.css" />
+    <link rel="stylesheet" href="/stylesheet/custom.css" />
   </head>
 
   <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar') %>
     <main class="container d-flex flex-wrap mt-5">
       <% for (const city of cities) { %>
-      <div class="shadow rounded card m-3" style="width: 18rem">
-        <% if(city.image) { %>
+      <div class="shadow card m-3 card-border" style="width: 18rem">
         <img
           src="<%= city.image %>"
           style="height: 12rem"
           class="card-img-top"
           alt="city"
         />
-        <% } else {%>
-        <img
-          src="https://images.unsplash.com/photo-1637540485660-93031d90b97b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFuZ2xvcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-          style="height: 12rem"
-          class="card-img-top"
-          alt="city"
-        />
-        <% } %>
-        <div class="card-body">
-          <h5 class="card-title"><%= city.cityname %></h5>
-          <a
-            href="/city/<%= city.id %>"
-            class="btn btn-outline-secondary btn-sm"
-            >View</a
-          >
+
+        <div class="card-body d-flex justify-content-between">
+          <h5 class="d-inline card-title"><%= city.cityname %></h5>
+          <a href="/city/<%= city.id %>" class="d-inline btn btn-sm">View</a>
         </div>
       </div>
       <% } %>

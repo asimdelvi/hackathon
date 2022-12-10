@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YelpCamp</title>
+    <title>SmartCity</title>
 
     <!-- Bootstrap -->
     <link
@@ -14,85 +14,72 @@
       crossorigin="anonymous"
     />
 
-    <!-- Mapbox -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/stylesheets/app.css" />
+    <link rel="stylesheet" href="/stylesheet/custom.css" />
   </head>
 
   <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar') %>
     <main class="container mt-5">
-      <div class="row gx-5">
-        <div class="col">
-          <div class="shadow rounded card m-3">
-            <img src="<%= city.image %>" class="card-img-top" alt="..." />
-            <div class="pt-2 card-body">
+      <div class="card mb-3 card-border card-border-verticle shadow">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= city.image %>" class="img-fluid" alt="hotel" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
               <h5 class="card-title"><%= city.cityname %></h5>
               <p class="card-text"><%= city.description %></p>
-              <p class="card-text"><%= city.location %></p>
+              <p class="card-text">Location: <%= city.location %></p>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <h3>Hotels</h3>
-        <% for (const hotel of city.hotels) { %>
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img
-                src="<%= hotel.image %>"
-                class="img-fluid rounded-start"
-                alt="hotel"
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><%= hotel.hotelname %></h5>
-                <p class="card-text"><%= hotel.description %></p>
-                <p class="card-text"><%= hotel.location %></p>
-                <p class="card-text"><%= hotel.price %></p>
-              </div>
+        <h3 class="mt-5">Hotels</h3>
+        <div class="d-flex flex-wrap">
+          <% for (const hotel of city.hotels) { %>
+          <div class="shadow card m-3 card-border" style="width: 18rem">
+            <img
+              src="<%= hotel.image %>"
+              style="height: 12rem"
+              class="card-img-top"
+              alt="city"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title"><%= hotel.hotelname %></h5>
+              <p class="card-text">Location: <%= hotel.location %></p>
+              <p class="card-text">&#x20b9;<%= hotel.price %></p>
             </div>
           </div>
+          <% } %>
         </div>
-        <% } %>
-        <div>
-          <a class="btn btn-primary" href="/city/<%= city.id %>/hotel/new"
-            >Add New Hotel</a
-          >
+        <div class="mb-3 ms-3">
+          <a class="btn" href="/city/<%= city.id %>/hotel/new">Add New Hotel</a>
         </div>
       </div>
       <div>
-        <h3>Places</h3>
-        <% for (const place of city.places) { %>
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img
-                src="<%= place.image %>"
-                class="img-fluid rounded-start"
-                alt="place"
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><%= place.placename %></h5>
-                <p class="card-text"><%= place.description %></p>
-                <p class="card-text"><%= place.location %></p>
-              </div>
+        <h3 class="mt-5">Places</h3>
+        <div class="d-flex flex-wrap">
+          <% for (const place of city.places) { %>
+          <div class="shadow card m-3 card-border" style="width: 18rem">
+            <img
+              src="<%= place.image %>"
+              style="height: 12rem"
+              class="card-img-top"
+              alt="city"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title"><%= place.placename %></h5>
+              <p class="card-text">Location: <%= place.location %></p>
             </div>
           </div>
+          <% } %>
         </div>
-        <% } %>
-        <div>
-          <a class="btn btn-primary" href="/city/<%= city.id %>/place/new"
-            >Add New Place</a
-          >
+
+        <div class="mb-3 ms-3">
+          <a class="btn" href="/city/<%= city.id %>/place/new">Add New Place</a>
         </div>
       </div>
     </main>

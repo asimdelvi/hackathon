@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/stylesheets/app.css" />
+    <link rel="stylesheet" href="/stylesheet/custom.css" />
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -33,7 +33,7 @@
             <div class="mb-3">
               <label for="title" class="form-label">Name</label>
               <input
-                class="form-control"
+                class="form-control input-field"
                 type="text"
                 id="title"
                 name="hotel[hotelname]"
@@ -48,7 +48,7 @@
               <input
                 type="text"
                 id="location"
-                class="form-control"
+                class="form-control input-field"
                 name="hotel[location]"
                 required
               />
@@ -60,7 +60,7 @@
 
             <div class="mb-3">
               <label for="image" class="form-label">Add Image</label>
-              <input class="form-control" type="file" id="image" name="image" />
+              <input class="form-control input-field" type="file" id="image" name="image" />
               <div class="valid-feedback">Looks good!</div>
               <div class="invalid-feedback">
                 Please provide a valid Image URL.
@@ -68,26 +68,11 @@
             </div>
 
             <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea
-                type="text"
-                id="description"
-                class="form-control"
-                name="hotel[description]"
-                rows="5"
-                required
-              ></textarea>
-              <div class="valid-feedback">Looks good!</div>
-              <div class="invalid-feedback">
-                Please provide a valid Description.
-              </div>
-            </div>
-            <div class="mb-3">
               <label for="price" class="form-label">Price</label>
               <input
                 type="text"
                 id="price"
-                class="form-control"
+                class="form-control input-field"
                 name="hotel[price]"
                 required
               ></input>
@@ -97,11 +82,13 @@
               </div>
             </div>
             <div class="mb-3">
-              <button class="btn btn-success" type="submit">
+              <button class="btn" type="submit">
                 Create Hotel
               </button>
             </div>
+            <div class="mb-3">
             <a href="/city">Back</a>
+          </div>
           </form>
         </div>
       </div>

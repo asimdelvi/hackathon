@@ -13,7 +13,6 @@ export const createHotel = async (req, res, next) => {
 };
 
 export const renderNewForm = async (req, res, next) => {
-  console.log(req.params);
   const city = await City.findById(req.params.id);
   res.render("hotels/new", { city });
 };
