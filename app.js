@@ -34,12 +34,8 @@ app.use("/city", CityRouter);
 app.use("/city/:id/hotel", HotelRouter);
 app.use("/city/:id/place", PlaceRouter);
 
-app.get("/add", async (req, res) => {
-  const h1 = await Hotel.create({ hotelname: "Hotel One" });
-  const h2 = await Hotel.create({ hotelname: "Hotel Two" });
-  const city = await City.create({ cityname: "First City", hotels: [h1, h2] });
-
-  res.send(city);
+app.all("*", () => {
+  res.send("Page not found");
 });
 
 app.listen(3000, () => console.log("Listening"));
