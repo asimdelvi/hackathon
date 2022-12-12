@@ -14,14 +14,7 @@ export const router = express.Router();
 router
   .route("/")
   .get(showAllCities) //All cities
-  .post(
-    (req, res, next) => {
-      console.log("hey");
-      next();
-    },
-    upload.single("image"),
-    createCity
-  ); //Create city
+  .post(upload.single("image"), createCity); //Create city
 
 router.get("/new", renderNewForm); //New form
 
