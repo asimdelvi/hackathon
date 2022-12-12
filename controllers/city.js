@@ -5,7 +5,6 @@ import { Hotel } from "../models/hotel.js";
 // Read all
 export const showAllCities = async (req, res, next) => {
   const cities = await City.find({});
-  console.log("hi");
   res.render("cities/index", { cities });
 };
 
