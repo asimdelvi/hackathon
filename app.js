@@ -28,7 +28,7 @@ mongoose
     `mongodb+srv://asimdelvi:${process.env.MONGODB_PASSWORD}@cluster0.d53kxrf.mongodb.net/guide?retryWrites=true&w=majority`
   )
   .then(() => console.log("db connected"));
-
+mongoose.set("strictQuery", false);
 // * Routes
 app.use("/city", CityRouter);
 app.use("/city/:id/hotel", HotelRouter);
