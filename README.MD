@@ -1,6 +1,7 @@
 # Smart City
 
 Cities guide for travelers.
+Check out ![Live site](https://smart-city.onrender.com/city)
 
 ## Screenshots:
 

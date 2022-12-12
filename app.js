@@ -29,6 +29,7 @@ mongoose
   )
   .then(() => console.log("db connected"));
 mongoose.set("strictQuery", false);
+
 // * Routes
 app.use("/city", CityRouter);
 app.use("/city/:id/hotel", HotelRouter);
